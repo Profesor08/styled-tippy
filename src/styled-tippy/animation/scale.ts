@@ -1,5 +1,5 @@
 import { css } from "styled-components";
-import { PropsWithDuration, ITippyAttrs } from "styled-tippy/types";
+import { PropsWithDuration, ITippyAttrs } from "../types";
 
 export const scale = (
   active: boolean,

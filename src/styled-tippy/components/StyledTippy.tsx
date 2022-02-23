@@ -1,15 +1,12 @@
 import React, { useState, useCallback } from "react";
 import Tippy, { TippyProps } from "@tippyjs/react";
 import { Instance, Props } from "tippy.js";
-import {
-  PropsWithDuration,
-  StyledTippyRenderFunction,
-} from "styled-tippy/types";
+import { PropsWithDuration, StyledTippyRenderFunction } from "../types";
 import {
   getValueAtIndexOrReturn,
   getTippyAnimation,
   getTippyArrowPosition,
-} from "styled-tippy/utils/utils";
+} from "../utils/utils";
 
 export const StyledTippy: React.VFC<
   {

@@ -1,9 +1,9 @@
 import { css } from "styled-components";
-import { PropsWithDuration, ITippyAttrs } from "styled-tippy/types";
-import { fade } from "styled-tippy/animation/fade";
-import { shift } from "styled-tippy/animation/shift";
-import { scale } from "styled-tippy/animation/scale";
-import { perspective } from "styled-tippy/animation/perspective";
+import { PropsWithDuration, ITippyAttrs } from "../types";
+import { fade } from "../animation/fade";
+import { shift } from "../animation/shift";
+import { scale } from "../animation/scale";
+import { perspective } from "../animation/perspective";
 
 export const getDefaultValue = (
   index: number,

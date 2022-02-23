@@ -1,5 +1,5 @@
 import { css } from "styled-components";
-import { PropsWithDuration } from "styled-tippy/types";
+import { PropsWithDuration } from "../types";
 
 export const fade = (active: boolean, p: PropsWithDuration) => {
   return css`
