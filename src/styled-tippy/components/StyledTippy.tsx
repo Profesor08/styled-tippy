@@ -1,5 +1,5 @@
-import React, { useState, useCallback } from "react";
-import Tippy, { TippyProps } from "@tippyjs/react";
+import React, { useState, useCallback, useRef } from "react";
+import Tippy, { TippyProps } from "@prof-dev/tippyjs-react";
 import { Instance, Props } from "tippy.js";
 import { PropsWithDuration, StyledTippyRenderFunction } from "../types";
 import {
@@ -20,31 +20,39 @@ export const StyledTippy: React.VFC<
   onHide: onHideProp,
   ...props
 }) => {
+  const ref = useRef<Element>(null);
   const [active, setActive] = useState(false);
+
+  const setActiveState = useCallback((active: boolean) => {
+    if (ref.current !== null) {
+      setActive(active);
+    }
+  }, []);
 
   const onShow = useCallback(
     (instance: Instance<Props>) => {
       onShowProp?.(instance);
-      requestAnimationFrame(() => setActive(true));
+      requestAnimationFrame(() => setActiveState(true));
       instance.popper.removeEventListener("transitionend", instance.unmount);
     },
-    [onShowProp],
+    [onShowProp, setActiveState],
   );
 
   const onHide = useCallback(
     (instance: Instance<Props>) => {
       onHideProp?.(instance);
-      requestAnimationFrame(() => setActive(false));
+      requestAnimationFrame(() => setActiveState(false));
       instance.popper.addEventListener("transitionend", instance.unmount, {
         once: true,
       });
     },
-    [onHideProp],
+    [onHideProp, setActiveState],
   );
 
   return (
     <>
       <Tippy
+        ref={ref}
         arrow={true}
         render={(attrs, content, instance) => {
           if (instance !== undefined) {
@@ -60,6 +68,8 @@ export const StyledTippy: React.VFC<
             return render({
               animation: getTippyAnimation(active, props, attrs),
               arrowPosition: getTippyArrowPosition(attrs),
+              attrs: attrs,
+              instance: instance,
             });
           }
 

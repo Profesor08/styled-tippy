@@ -11,13 +11,13 @@ export const shift = (
   let x = 0;
   let y = 0;
 
-  if (placement.includes("top")) {
+  if (placement?.includes("top")) {
     y = offset;
-  } else if (placement.includes("bottom")) {
+  } else if (placement?.includes("bottom")) {
     y = -offset;
-  } else if (placement.includes("left")) {
+  } else if (placement?.includes("left")) {
     x = offset;
-  } else if (placement.includes("right")) {
+  } else if (placement?.includes("right")) {
     x = -offset;
   }
 

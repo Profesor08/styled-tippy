@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { render } from "react-dom";
 import styled from "styled-components";
 import {
@@ -53,108 +54,152 @@ const tippyRender: StyledTippyRenderFunction = ({
   );
 };
 
+const Container = styled.div`
+  display: grid;
+  justify-content: center;
+  gap: 32px;
+`;
+
+const Example1 = styled.div`
+  display: grid;
+  justify-content: center;
+  grid-template-columns: auto auto auto;
+  gap: 16px;
+`;
+
+const Example2 = styled.div`
+  display: grid;
+  justify-content: center;
+  grid-template-columns: auto;
+  gap: 16px;
+`;
+
 const App = () => {
   const animation = "perspective";
 
+  const [showInteractive, setShowInteractive] = useState(true);
+
   return (
-    <div
-      style={{
-        display: "grid",
-        justifyContent: "center",
-        gridTemplateColumns: "auto auto auto",
-        gap: "16px",
-      }}
-    >
-      <StyledTippy render={tippyRender} placement="top" animation={animation}>
-        <Toggle>top</Toggle>
-      </StyledTippy>
-      <StyledTippy
-        render={tippyRender}
-        placement="top-start"
-        animation={animation}
-      >
-        <Toggle>top-start</Toggle>
-      </StyledTippy>
-      <StyledTippy
-        render={tippyRender}
-        placement="top-end"
-        animation={animation}
-      >
-        <Toggle>top-end</Toggle>
-      </StyledTippy>
-      <StyledTippy render={tippyRender} placement="right" animation={animation}>
-        <Toggle>right</Toggle>
-      </StyledTippy>
-      <StyledTippy
-        render={tippyRender}
-        placement="right-start"
-        animation={animation}
-      >
-        <Toggle>right-start</Toggle>
-      </StyledTippy>
-      <StyledTippy
-        render={tippyRender}
-        placement="right-end"
-        animation={animation}
-      >
-        <Toggle>right-end</Toggle>
-      </StyledTippy>
-      <StyledTippy
-        render={tippyRender}
-        placement="bottom"
-        animation={animation}
-      >
-        <Toggle>bottom</Toggle>
-      </StyledTippy>
-      <StyledTippy
-        render={tippyRender}
-        placement="bottom-start"
-        animation={animation}
-      >
-        <Toggle>bottom-start</Toggle>
-      </StyledTippy>
-      <StyledTippy
-        render={tippyRender}
-        placement="bottom-end"
-        animation={animation}
-      >
-        <Toggle>bottom-end</Toggle>
-      </StyledTippy>
-      <StyledTippy render={tippyRender} placement="left" animation={animation}>
-        <Toggle>left</Toggle>
-      </StyledTippy>
-      <StyledTippy
-        render={tippyRender}
-        placement="left-start"
-        animation={animation}
-      >
-        <Toggle>left-start</Toggle>
-      </StyledTippy>
-      <StyledTippy
-        render={tippyRender}
-        placement="left-end"
-        animation={animation}
-      >
-        <Toggle>left-end</Toggle>
-      </StyledTippy>
-      <StyledTippy render={tippyRender} placement="top" animation={animation}>
-        <Toggle>top</Toggle>
-      </StyledTippy>
-      <StyledTippy
-        render={tippyRender}
-        placement="top-start"
-        animation={animation}
-      >
-        <Toggle>top-start</Toggle>
-      </StyledTippy>
-      <StyledTippy
-        render={tippyRender}
-        placement="top-end"
-        animation={animation}
-      >
-        <Toggle>top-end</Toggle>
-      </StyledTippy>
-    </div>
+    <Container>
+      <Example1>
+        <StyledTippy render={tippyRender} placement="top" animation={animation}>
+          <Toggle>top</Toggle>
+        </StyledTippy>
+        <StyledTippy
+          render={tippyRender}
+          placement="top-start"
+          animation={animation}
+        >
+          <Toggle>top-start</Toggle>
+        </StyledTippy>
+        <StyledTippy
+          render={tippyRender}
+          placement="top-end"
+          animation={animation}
+        >
+          <Toggle>top-end</Toggle>
+        </StyledTippy>
+        <StyledTippy
+          render={tippyRender}
+          placement="right"
+          animation={animation}
+        >
+          <Toggle>right</Toggle>
+        </StyledTippy>
+        <StyledTippy
+          render={tippyRender}
+          placement="right-start"
+          animation={animation}
+        >
+          <Toggle>right-start</Toggle>
+        </StyledTippy>
+        <StyledTippy
+          render={tippyRender}
+          placement="right-end"
+          animation={animation}
+        >
+          <Toggle>right-end</Toggle>
+        </StyledTippy>
+        <StyledTippy
+          render={tippyRender}
+          placement="bottom"
+          animation={animation}
+        >
+          <Toggle>bottom</Toggle>
+        </StyledTippy>
+        <StyledTippy
+          render={tippyRender}
+          placement="bottom-start"
+          animation={animation}
+        >
+          <Toggle>bottom-start</Toggle>
+        </StyledTippy>
+        <StyledTippy
+          render={tippyRender}
+          placement="bottom-end"
+          animation={animation}
+        >
+          <Toggle>bottom-end</Toggle>
+        </StyledTippy>
+        <StyledTippy
+          render={tippyRender}
+          placement="left"
+          animation={animation}
+        >
+          <Toggle>left</Toggle>
+        </StyledTippy>
+        <StyledTippy
+          render={tippyRender}
+          placement="left-start"
+          animation={animation}
+        >
+          <Toggle>left-start</Toggle>
+        </StyledTippy>
+        <StyledTippy
+          render={tippyRender}
+          placement="left-end"
+          animation={animation}
+        >
+          <Toggle>left-end</Toggle>
+        </StyledTippy>
+        <StyledTippy render={tippyRender} placement="top" animation={animation}>
+          <Toggle>top</Toggle>
+        </StyledTippy>
+        <StyledTippy
+          render={tippyRender}
+          placement="top-start"
+          animation={animation}
+        >
+          <Toggle>top-start</Toggle>
+        </StyledTippy>
+        <StyledTippy
+          render={tippyRender}
+          placement="top-end"
+          animation={animation}
+        >
+          <Toggle>top-end</Toggle>
+        </StyledTippy>
+      </Example1>
+
+      <Example2>
+        <Toggle onClick={() => setShowInteractive(!showInteractive)}>
+          is-interactive: {showInteractive}
+        </Toggle>
+        {showInteractive ? (
+          <StyledTippy
+            render={tippyRender}
+            placement="bottom"
+            animation={animation}
+            interactive={true}
+            duration={2000}
+          >
+            <Toggle>top</Toggle>
+          </StyledTippy>
+        ) : (
+          <Toggle>top</Toggle>
+        )}
+      </Example2>
+    </Container>
   );
 };
 

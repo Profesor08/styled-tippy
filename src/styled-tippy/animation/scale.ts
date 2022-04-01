@@ -10,13 +10,13 @@ export const scale = (
   const placement = attrs["data-placement"];
   let origin = "bottom";
 
-  if (placement.includes("top")) {
+  if (placement?.includes("top")) {
     origin = "bottom";
-  } else if (placement.includes("bottom")) {
+  } else if (placement?.includes("bottom")) {
     origin = "top";
-  } else if (placement.includes("left")) {
+  } else if (placement?.includes("left")) {
     origin = "right";
-  } else if (placement.includes("right")) {
+  } else if (placement?.includes("right")) {
     origin = "left";
   }
 
